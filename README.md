@@ -2,11 +2,14 @@
 
 **Stable version V4**
 
+Board size : 280 x 207cm
+
 Feature :
 
 \- auto update list when modify measure
 
-\- add new board 280cm x 207cm when there is no more space in previous board
+\- add new board 280 x 207cm when there is no more space in previous board
+\- add save/load system
 
 TODO feature :
 
