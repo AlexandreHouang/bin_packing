@@ -39,6 +39,7 @@
         <label>Largeur: <input type="number" id="width" min="1"></label>
         <label>Hauteur: <input type="number" id="height" min="1"></label>
         <button onclick="addRectangleFromUI()">Ajouter</button>
+        <button onclick="updateBoard()">Mise à jour</button>
         <div class="board" id="board"></div>
         <div class="list-container">
             <h2>Liste des rectangles ajoutés</h2>
@@ -108,23 +109,28 @@
             if (!isNaN(width) && !isNaN(height) && width > 0 && height > 0) {
                 let rect = new Rectangle(width, height);
                 rectangles.push(rect);
-                rectangles.sort((a, b) => b.width * b.height - a.width * a.height);
-                if (board.placeRectangle(rect)) {
-                    drawRectangle(rect);
-                    updateRectangleList();
-                } else {
-                    alert("Impossible de placer ce rectangle.");
-                }
+                updateBoard();
             } else {
                 alert("Veuillez entrer des valeurs valides.");
             }
         }
         
+        function updateBoard() {
+            board.placedRectangles = [];
+            boardElement.innerHTML = "";
+            rectangles.sort((a, b) => b.width * b.height - a.width * a.height);
+            rectangles.forEach(rect => {
+                board.placeRectangle(rect);
+            });
+            board.placedRectangles.forEach(drawRectangle);
+            updateRectangleList();
+        }
+
         function drawRectangle(rect) {
             let rectElement = document.createElement("div");
             rectElement.classList.add("rectangle");
             
-            let scaleFactor = 2; // Agrandir le visuel pour meilleure visibilité
+            let scaleFactor = 2;
             rectElement.style.width = rect.width * scaleFactor + "px";
             rectElement.style.height = rect.height * scaleFactor + "px";
             rectElement.style.left = rect.x * scaleFactor + "px";
@@ -137,27 +143,39 @@
             rectangleList.innerHTML = "";
             rectangles.forEach((rect, index) => {
                 let listItem = document.createElement("li");
-                listItem.textContent = `Largeur: ${rect.width} cm, Hauteur: ${rect.height} cm`;
+                
+                let widthInput = document.createElement("input");
+                widthInput.type = "number";
+                widthInput.value = rect.width;
+                widthInput.onchange = (e) => modifyRectangle(index, parseFloat(e.target.value), rect.height);
+                
+                let heightInput = document.createElement("input");
+                heightInput.type = "number";
+                heightInput.value = rect.height;
+                heightInput.onchange = (e) => modifyRectangle(index, rect.width, parseFloat(e.target.value));
                 
                 let deleteButton = document.createElement("button");
                 deleteButton.textContent = "Supprimer";
                 deleteButton.onclick = () => removeRectangle(index);
                 
+                listItem.appendChild(widthInput);
+                listItem.appendChild(heightInput);
                 listItem.appendChild(deleteButton);
                 rectangleList.appendChild(listItem);
             });
         }
         
-        function removeRectangle(index) {
-            rectangles.splice(index, 1);
-            board.placedRectangles.splice(index, 1);
-            updateRectangleList();
-            redrawBoard();
+        function modifyRectangle(index, newWidth, newHeight) {
+            if (newWidth > 0 && newHeight > 0) {
+                rectangles[index].width = newWidth;
+                rectangles[index].height = newHeight;
+                updateBoard();
+            }
         }
         
-        function redrawBoard() {
-            boardElement.innerHTML = "";
-            board.placedRectangles.forEach(drawRectangle);
+        function removeRectangle(index) {
+            rectangles.splice(index, 1);
+            updateBoard();
         }
     </script>
 </body>
