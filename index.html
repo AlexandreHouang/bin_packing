@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placement des Rectangles</title>
+    <title>bin_packing 280x207cm</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <style>
         body {
@@ -41,7 +41,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Placement des Rectangles</h1>
+        <h1>Placement planches - panneau 280x207cm</h1>
         <label>Largeur: <input type="number" id="width" min="1"></label>
         <label>Hauteur: <input type="number" id="height" min="1"></label>
         <button onclick="addRectangleFromUI()">Ajouter</button>
@@ -49,7 +49,7 @@
         <button onclick="loadRectangles()">Charger</button>
         <button onclick="document.getElementById('fileInput').click()">Charger un fichier</button>
         <input type="file" id="fileInput" accept=".xlsx, .xls" onchange="loadFromExcel(event)" style="display: none;">
-        <br>
+        <div><br></div>
         <div class="board-container" id="board-container"></div>
         <div class="list-container">
             <h2>Liste des rectangles ajoutés</h2>
