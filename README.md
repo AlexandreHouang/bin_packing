@@ -1,6 +1,6 @@
 # bin_packing
 
-**Stable version V4**
+**Stable version V6**
 
 Board size : 280 x 207cm
 
