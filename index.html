@@ -44,6 +44,8 @@
         <label>Largeur: <input type="number" id="width" min="1"></label>
         <label>Hauteur: <input type="number" id="height" min="1"></label>
         <button onclick="addRectangleFromUI()">Ajouter</button>
+        <button onclick="saveRectangles()">Sauvegarder</button>
+        <button onclick="loadRectangles()">Charger</button>
         <div class="board-container" id="board-container"></div>
         <div class="list-container">
             <h2>Liste des rectangles ajoutés</h2>
@@ -185,6 +187,21 @@
         function removeRectangle(index) {
             rectangles.splice(index, 1);
             updateBoards();
+        }
+        
+        function saveRectangles() {
+            localStorage.setItem("rectangles", JSON.stringify(rectangles));
+            alert("Liste des rectangles sauvegardée !");
+        }
+
+        function loadRectangles() {
+            let savedData = localStorage.getItem("rectangles");
+            if (savedData) {
+                rectangles = JSON.parse(savedData);
+                updateBoards();
+            } else {
+                alert("Aucune sauvegarde trouvée.");
+            }
         }
     </script>
 </body>
