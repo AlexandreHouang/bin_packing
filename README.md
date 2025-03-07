@@ -6,6 +6,7 @@ This project implements a **Bin Packing Algorithm**, a combinatorial optimizatio
 
 - **Board size**: 280 x 207 cm  
 - **Item orientation**: The width of each item **is always placed horizontally**
+- There is a **0.05 cm margin** between two adjacent planks due to a material loss of approximately 0.05 cm when the saw cuts through.
 
 ## Features
 
