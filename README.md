@@ -4,7 +4,7 @@
 
 Board size : 280 x 207cm
 
-Feature :
+**Feature :**
 
 \- auto update list when modify measure
 
@@ -12,6 +12,6 @@ Feature :
 
 \- add save/load system
 
-TODO feature :
+**TODO feature :**
 
 \- added error message when entering a board measurement exceeds the maximum measurement of the panel
