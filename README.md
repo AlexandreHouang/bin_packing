@@ -1,11 +1,12 @@
-# bin_packing
+<h1>bin_packing</h1>
 
-**Stable version V7**
+<h2>Stable version V7</h2>
 
-Board size : 280 x 207cm
+<ul>
+  <li>Board size : 280 x 207cm</li>
+</ul>
 
-
-**Feature :**
+<h3>Feature :</h3>
 
 <ul>
   <li>auto update list when modify measure</li>
@@ -14,7 +15,7 @@ Board size : 280 x 207cm
   <li>add excel data import. Format columm title "Largeur", "Hauteur"</li>
 </ul>
 
-**Changelog**
+<h3>Changelog</h3>
 
 *07/03/2025*
 <ul>
@@ -25,12 +26,12 @@ Board size : 280 x 207cm
 
 
 *06/03/2025*
+<ul>
+  <li>auto update list when modify measure</li>
+  <li>add new board 280 x 207cm when there is no more space in previous board</li>
+</ul>
 
-\- auto update list when modify measure
-
-\- add new board 280 x 207cm when there is no more space in previous board
-
-
-**TODO feature :**
-
-\- add error message when entering a board measurement exceeds the maximum measurement of the panel
+<h3>TODO feature :</h3>
+<ul>
+  <li>add error message when entering a board measurement exceeds the maximum measurement of the panel</li>
+</ul>
