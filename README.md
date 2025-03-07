@@ -7,13 +7,12 @@ Board size : 280 x 207cm
 
 **Feature :**
 
-\- auto update list when modify measure
-
-\- add new board 280 x 207cm when there is no more space in previous board
-
-\- add save/load system
-
-\- add excel data import. Format columm title "Largeur", "Hauteur"
+<ul>
+  <li>auto update list when modify measure</li>
+  <li>add new board 280 x 207cm when there is no more space in previous board</li>
+  <li>add save/load system</li>
+  <li>add excel data import. Format columm title "Largeur", "Hauteur"</li>
+</ul>
 
 **Changelog**
 
