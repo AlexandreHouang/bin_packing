@@ -1,5 +1,6 @@
-<h1>bin_packing</h1>
-<h3>Stable version V7</h3>
+<h1>bin_packing - Bin Packing Application (Stable version V7) </h1>
+
+This project implements a Bin Packing Algorithm, a combinatorial optimization problem that aims to efficiently pack a set of items into a limited number of containers (bins) while minimizing wasted space.
 
 <ul>
   <li>Board size : 280 x 207cm</li>
