@@ -17,12 +17,12 @@ Board size : 280 x 207cm
 **Changelog**
 
 *07/03/2025*
+<ul>
+  <li>add save/load system</li>
+  <li>add excel data import. Format columm title "Largeur", "Hauteur"</li>
+  <li>[bug]plank list desactived</li>
+</ul>
 
-\- add save/load system
-
-\- add excel data import. Format columm title "Largeur", "Hauteur"
-
-\- [bug]plank list desactived
 
 *06/03/2025*
 
