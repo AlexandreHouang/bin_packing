@@ -1,39 +1,36 @@
-<h1>bin_packing - Bin Packing Application (Stable version V7) </h1>
+# Bin Packing Application (Stable version V7)
 
-This project implements a Bin Packing Algorithm, a combinatorial optimization problem that aims to efficiently pack a set of items into a limited number of containers (bins) while minimizing wasted space.
+This project implements a **Bin Packing Algorithm**, a combinatorial optimization problem that efficiently packs a set of items into a limited number of containers (bins) while minimizing wasted space.
 
-<h3>Info :</h3>
+## Info
 
-<ul>
-  <li>Board size : 280 x 207cm</li>
-</ul>
+- **Board size**: 280 x 207 cm
 
-<h3>Feature :</h3>
+## Features
 
-<ul>
-  <li>auto update list when modify measure</li>
-  <li>add new board 280 x 207cm when there is no more space in previous board</li>
-  <li>add save/load system</li>
-  <li>add excel data import. Format columm title "Largeur", "Hauteur"</li>
-</ul>
+- **Automatic list updates** when modifying measurements  
+- **Dynamic board addition**: A new 280 x 207 cm board is added when no space is left in the previous board  
+- **Save/Load system** for preserving data  
+- **Excel data import** (columns must be titled `"Largeur"`, `"Hauteur"`)  
 
-<h3>Changelog</h3>
+## Changelog
 
-*07/03/2025*
-<ul>
-  <li>add save/load system</li>
-  <li>add excel data import. Format columm title "Largeur", "Hauteur"</li>
-  <li>[bug]plank list desactived</li>
-</ul>
+### 07/03/2025
+- Added save/load system  
+- Added Excel data import (columns: `"Largeur"`, `"Hauteur"`)  
+- 🐛 **Standby Fixed bug**: Plank list was deactivated  
 
+### 06/03/2025
+- Automatic list updates when modifying measurements  
+- Added dynamic board addition (new 280 x 207 cm board when needed)  
 
-*06/03/2025*
-<ul>
-  <li>auto update list when modify measure</li>
-  <li>add new board 280 x 207cm when there is no more space in previous board</li>
-</ul>
+## TODO Features
 
-<h3>TODO feature :</h3>
-<ul>
-  <li>add error message when entering a board measurement exceeds the maximum measurement of the panel</li>
-</ul>
+- Display an error message when entered board measurements exceed the maximum panel size  
+
+## Installation & Usage
+
+1. Clone the repository:  
+   ```bash
+   git clone <repository_url>
+   cd bin_packing
