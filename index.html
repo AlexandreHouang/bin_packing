@@ -123,12 +123,11 @@
         
         function updateBoards() {
             boards = [new Board(280, 207)];
-            let newRectangles = [...rectangles];
-            rectangles = [];
-            
-            newRectangles.forEach(rect => {
+            rectangles.forEach(rect => {
                 addRectangle(rect);
             });
+            redrawBoards();
+            updateRectangleList();
         }
 
         function addRectangle(rect) {
@@ -139,15 +138,11 @@
                     break;
                 }
             }
-            
             if (!placed) {
                 let newBoard = new Board(280, 207);
                 boards.push(newBoard);
                 newBoard.placeRectangle(rect);
             }
-            rectangles.push(rect);
-            redrawBoards();
-            updateRectangleList();
         }
 
         function redrawBoards() {
