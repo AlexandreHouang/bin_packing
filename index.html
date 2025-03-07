@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement des Rectangles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            margin: 20px;
+        }
+        .board {
+            position: relative;
+            width: 560px;
+            height: 414px;
+            border: 2px solid black;
+            margin: auto;
+            background-color: #f0f0f0;
+        }
+        .rectangle {
+            position: absolute;
+            background-color: rgba(0, 123, 255, 0.5);
+            border: 1px solid blue;
+            box-sizing: border-box;
+        }
+        .list-container {
+            margin-top: 20px;
+            text-align: left;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Placement des Rectangles</h1>
+        <label>Largeur: <input type="number" id="width" min="1"></label>
+        <label>Hauteur: <input type="number" id="height" min="1"></label>
+        <button onclick="addRectangleFromUI()">Ajouter</button>
+        <div class="board" id="board"></div>
+        <div class="list-container">
+            <h2>Liste des rectangles ajoutés</h2>
+            <ul id="rectangle-list"></ul>
+        </div>
+    </div>
+
+    <script>
+        class Board {
+            constructor(width, height) {
+                this.width = width;
+                this.height = height;
+                this.placedRectangles = [];
+            }
+
+            canPlace(rect, x, y) {
+                if (x + rect.width > this.width || y + rect.height > this.height) {
+                    return false;
+                }
+                
+                for (let placed of this.placedRectangles) {
+                    if (
+                        x < placed.x + placed.width + 0.05 &&
+                        x + rect.width + 0.05 > placed.x &&
+                        y < placed.y + placed.height + 0.05 &&
+                        y + rect.height + 0.05 > placed.y
+                    ) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+            placeRectangle(rect) {
+                for (let y = 0; y <= this.height - rect.height; y++) {
+                    for (let x = 0; x <= this.width - rect.width; x++) {
+                        if (this.canPlace(rect, x, y)) {
+                            rect.x = x;
+                            rect.y = y;
+                            this.placedRectangles.push(rect);
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+        }
+
+        class Rectangle {
+            constructor(width, height) {
+                this.width = width;
+                this.height = height;
+                this.x = 0;
+                this.y = 0;
+            }
+        }
+
+        const board = new Board(280, 207);
+        const boardElement = document.getElementById("board");
+        const rectangleList = document.getElementById("rectangle-list");
+        let rectangles = [];
+
+        function addRectangleFromUI() {
+            let width = parseFloat(document.getElementById("width").value);
+            let height = parseFloat(document.getElementById("height").value);
+            
+            if (!isNaN(width) && !isNaN(height) && width > 0 && height > 0) {
+                let rect = new Rectangle(width, height);
+                rectangles.push(rect);
+                rectangles.sort((a, b) => b.width * b.height - a.width * a.height);
+                if (board.placeRectangle(rect)) {
+                    drawRectangle(rect);
+                    updateRectangleList();
+                } else {
+                    alert("Impossible de placer ce rectangle.");
+                }
+            } else {
+                alert("Veuillez entrer des valeurs valides.");
+            }
+        }
+        
+        function drawRectangle(rect) {
+            let rectElement = document.createElement("div");
+            rectElement.classList.add("rectangle");
+            
+            let scaleFactor = 2; // Agrandir le visuel pour meilleure visibilité
+            rectElement.style.width = rect.width * scaleFactor + "px";
+            rectElement.style.height = rect.height * scaleFactor + "px";
+            rectElement.style.left = rect.x * scaleFactor + "px";
+            rectElement.style.top = rect.y * scaleFactor + "px";
+            
+            boardElement.appendChild(rectElement);
+        }
+        
+        function updateRectangleList() {
+            rectangleList.innerHTML = "";
+            rectangles.forEach((rect, index) => {
+                let listItem = document.createElement("li");
+                listItem.textContent = `Largeur: ${rect.width} cm, Hauteur: ${rect.height} cm`;
+                
+                let deleteButton = document.createElement("button");
+                deleteButton.textContent = "Supprimer";
+                deleteButton.onclick = () => removeRectangle(index);
+                
+                listItem.appendChild(deleteButton);
+                rectangleList.appendChild(listItem);
+            });
+        }
+        
+        function removeRectangle(index) {
+            rectangles.splice(index, 1);
+            board.placedRectangles.splice(index, 1);
+            updateRectangleList();
+            redrawBoard();
+        }
+        
+        function redrawBoard() {
+            boardElement.innerHTML = "";
+            board.placedRectangles.forEach(drawRectangle);
+        }
+    </script>
+</body>
+</html>
