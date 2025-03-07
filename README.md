@@ -5,10 +5,10 @@ This project implements a **Bin Packing Algorithm**, a combinatorial optimizatio
 ## Info
 
 - **Board size**: 280 x 207 cm
+- The width is always placed horizontally
 
 ## Features
 
-- **Automatic list updates** when modifying measurements  
 - **Dynamic board addition**: A new 280 x 207 cm board is added when no space is left in the previous board  
 - **Save/Load system** for preserving data  
 - **Excel data import** (columns must be titled `"Largeur"`, `"Hauteur"`)  
@@ -25,7 +25,7 @@ This project implements a **Bin Packing Algorithm**, a combinatorial optimizatio
 - Added dynamic board addition (new 280 x 207 cm board when needed)  
 
 ## TODO Features
-
+- **Automatic list updates** when modifying measurements 
 - Display an error message when entered board measurements exceed the maximum panel size  
 
 ## Installation & Usage
