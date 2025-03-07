@@ -1,16 +1,16 @@
-# Bin Packing Application (Stable version V7)
+# Bin Packing Application (Stable Version V7)
 
 This project implements a **Bin Packing Algorithm**, a combinatorial optimization problem that efficiently packs a set of items into a limited number of containers (bins) while minimizing wasted space.
 
 ## Info
 
-- **Board size**: 280 x 207 cm
-- The width is always placed horizontally
+- **Board size**: 280 x 207 cm  
+- **Item orientation**: The width of each item **is always placed horizontally**
 
 ## Features
 
-- **Dynamic board addition**: A new 280 x 207 cm board is added when no space is left in the previous board  
-- **Save/Load system** for preserving data  
+- **Dynamic board addition**: A new 280 x 207 cm board is automatically added when no space is left in the previous board  
+- **Save/Load system** to preserve data  
 - **Excel data import** (columns must be titled `"Largeur"`, `"Hauteur"`)  
 
 ## Changelog
@@ -18,14 +18,14 @@ This project implements a **Bin Packing Algorithm**, a combinatorial optimizatio
 ### 07/03/2025
 - Added save/load system  
 - Added Excel data import (columns: `"Largeur"`, `"Hauteur"`)  
-- 🐛 **Standby Fixed bug**: Plank list was deactivated  
+- 🐛 **Fixed bug**: Plank list was deactivated  
 
 ### 06/03/2025
-- Automatic list updates when modifying measurements  
+- Automatic list updates when modifying item measurements  
 - Added dynamic board addition (new 280 x 207 cm board when needed)  
 
 ## TODO Features
-- **Automatic list updates** when modifying measurements 
+- **Automatic list updates** when modifying item measurements  
 - Display an error message when entered board measurements exceed the maximum panel size  
 
 ## Installation & Usage
