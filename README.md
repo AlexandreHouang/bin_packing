@@ -1,6 +1,4 @@
-<h1>bin_packing</h1>
-
-<h2>Stable version V7</h2>
+<h1>bin_packing -- Stable version V7</h1>
 
 <ul>
   <li>Board size : 280 x 207cm</li>
