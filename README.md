@@ -2,6 +2,8 @@
 
 This project implements a Bin Packing Algorithm, a combinatorial optimization problem that aims to efficiently pack a set of items into a limited number of containers (bins) while minimizing wasted space.
 
+<h3>Info :</h3>
+
 <ul>
   <li>Board size : 280 x 207cm</li>
 </ul>
