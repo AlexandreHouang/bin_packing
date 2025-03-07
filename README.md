@@ -8,8 +8,6 @@ Feature :
 
 \- add new board 280cm x 207cm when there is no more space in previous board
 
-TODO :
+TODO feature :
 
 \- added error message when entering a board measurement exceeds the maximum measurement of the panel
-
-\- ajout auto de panneau quand il n'y a plus de place
