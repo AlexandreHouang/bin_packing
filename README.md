@@ -1,4 +1,4 @@
-# Bin Packing Application (Stable Version V7)
+# Bin Packing Application (Stable Version V9)
 
 This project implements a **Bin Packing Algorithm**, a combinatorial optimization problem that efficiently packs a set of items into a limited number of containers (bins) while minimizing wasted space.
 
@@ -15,6 +15,10 @@ This project implements a **Bin Packing Algorithm**, a combinatorial optimizatio
 - **Excel data import** (columns must be titled `"Largeur"`, `"Hauteur"`)  
 
 ## Changelog
+
+### 10/03/2025
+- Add tangram fonction
+- Add a display measurement in cm on the planks
 
 ### 07/03/2025
 - Added save/load system  
