@@ -45,7 +45,8 @@
         <label>Largeur: <input type="number" id="width" min="1"></label>
         <label>Hauteur: <input type="number" id="height" min="1"></label>
         <button onclick="addRectangleFromUI()">Ajouter</button>
-		<div><br></div>
+        <button onclick="optimizeTangram()">Tangram</button>
+        <div><br></div>
         <button onclick="saveRectangles()">Sauvegarder locale</button>
         <button onclick="loadRectangles()">Chargement locale</button>
         <button onclick="document.getElementById('fileInput').click()">Charger un fichier Excel</button>
@@ -150,6 +151,11 @@
                 boards.push(newBoard);
                 newBoard.placeRectangle(rect);
             }
+        }
+
+        function optimizeTangram() {
+            rectangles.sort((a, b) => (b.width * b.height) - (a.width * a.height));
+            updateBoards();
         }
 
         function redrawBoards() {
