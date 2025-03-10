@@ -19,6 +19,7 @@ This project implements a **Bin Packing Algorithm**, a combinatorial optimizatio
 ### 10/03/2025
 - Add tangram fonction
 - Add a display measurement in cm on the planks
+- desactived : planks list, local save & load
 
 ### 07/03/2025
 - Added save/load system  
