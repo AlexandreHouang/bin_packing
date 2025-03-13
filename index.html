@@ -54,16 +54,10 @@
         <button onclick="addRectangleFromUI()">Ajouter</button>
 <div><br></div>
         <button onclick="optimizeTangram()">Tangram</button>
-        <!--<button onclick="saveRectangles()">Sauvegarder locale</button>
-        <button onclick="loadRectangles()">Chargement locale</button> -->
         <button onclick="document.getElementById('fileInput').click()">Charger un fichier Excel</button>
         <input type="file" id="fileInput" accept=".xlsx, .xls" onchange="loadFromExcel(event)" style="display: none;">
         <div><br></div>
         <div class="board-container" id="board-container"></div>
-        <!--<div class="list-container">
-            <h2>Liste des rectangles ajoutés</h2>
-            <ul id="rectangle-list"></ul>
-        </div>-->
 		<div>
 		<p><b>Note :</b> Excel nom colonnes format requis : colonne 1: Largeur / colonne 2: Hauteur</p>
 		</div>
