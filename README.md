@@ -1,4 +1,4 @@
-# Bin Packing Application (Stable Version V9)
+# Bin Packing Application (Stable Version V10)
 
 This project implements a **Bin Packing Algorithm**, a combinatorial optimization problem that efficiently packs a set of items into a limited number of containers (bins) while minimizing wasted space.
 
