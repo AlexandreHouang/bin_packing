@@ -16,6 +16,10 @@ This project implements a **Bin Packing Algorithm**, a combinatorial optimizatio
 
 ## Changelog
 
+### 13/03/2025
+- Remove button "Sauvegarder locale" and "Chargement locale"
+- Update button UI
+
 ### 10/03/2025
 - Add tangram fonction
 - Add a display measurement in cm on the planks
