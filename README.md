@@ -27,7 +27,7 @@ This project implements a **Bin Packing Algorithm**, a combinatorial optimizatio
 ### 07/03/2025
 - Added save/load system  
 - Added Excel data import (columns: `"Largeur"`, `"Hauteur"`)  
-- 🐛 **Fixed bug**: Plank list was deactivated  
+- 🐛 **Bug to fix**: Plank list was deactivated  
 
 ### 06/03/2025
 - Automatic list updates when modifying item measurements  
