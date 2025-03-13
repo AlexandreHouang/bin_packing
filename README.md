@@ -11,7 +11,6 @@ This project implements a **Bin Packing Algorithm**, a combinatorial optimizatio
 ## Features
 
 - **Dynamic board addition**: A new 280 x 207 cm board is automatically added when no space is left in the previous board  
-- **Save/Load system** to preserve data  
 - **Excel data import** (columns must be titled `"Largeur"`, `"Hauteur"`)  
 
 ## Changelog
