@@ -19,12 +19,20 @@
             justify-content: center;
             gap: 20px;
         }
+        .board-wrapper {
+            text-align: center;
+        }
         .board {
             position: relative;
             width: 560px;
             height: 414px;
             border: 2px solid black;
             background-color: #f0f0f0;
+            margin-bottom: 5px;
+        }
+        .board-usage {
+            font-size: 14px;
+            font-weight: bold;
         }
         .rectangle {
             position: absolute;
@@ -39,11 +47,6 @@
             font-weight: bold;
             text-align: center;
         }
-        .list-container {
-            margin-top: 20px;
-            text-align: left;
-            display: inline-block;
-        }
     </style>
 </head>
 <body>
@@ -52,15 +55,16 @@
         <label>Largeur: <input type="number" id="width" min="1"></label>
         <label>Hauteur: <input type="number" id="height" min="1"></label>
         <button onclick="addRectangleFromUI()">Ajouter</button>
-<div><br></div>
         <button onclick="optimizeTangram()">Tangram</button>
+        <button onclick="calculateBoardUsage()">Calculer Taux d'Utilisation</button>
+        <div><br></div>
         <button onclick="document.getElementById('fileInput').click()">Charger un fichier Excel</button>
         <input type="file" id="fileInput" accept=".xlsx, .xls" onchange="loadFromExcel(event)" style="display: none;">
         <div><br></div>
         <div class="board-container" id="board-container"></div>
-		<div>
-		<p><b>Note :</b> Excel nom colonnes format requis : colonne 1: Largeur / colonne 2: Hauteur</p>
-		</div>
+        <div>
+            <p><b>Note :</b> Excel nom colonnes format requis : colonne 1: Largeur / colonne 2: Hauteur</p>
+        </div>
     </div>
 
     <script>
@@ -71,7 +75,17 @@
                 this.placedRectangles = [];
                 this.element = document.createElement("div");
                 this.element.classList.add("board");
-                document.getElementById("board-container").appendChild(this.element);
+
+                this.usageText = document.createElement("p");
+                this.usageText.classList.add("board-usage");
+                this.usageText.textContent = "Utilisation : 0%";
+
+                this.wrapper = document.createElement("div");
+                this.wrapper.classList.add("board-wrapper");
+                this.wrapper.appendChild(this.element);
+                this.wrapper.appendChild(this.usageText);
+
+                document.getElementById("board-container").appendChild(this.wrapper);
             }
 
             canPlace(rect, x, y) {
@@ -105,6 +119,13 @@
                 }
                 return false;
             }
+
+            calculateUsage() {
+                let usedArea = this.placedRectangles.reduce((sum, rect) => sum + (rect.width * rect.height), 0);
+                let totalArea = this.width * this.height;
+                let usagePercent = ((usedArea / totalArea) * 100).toFixed(2);
+                this.usageText.textContent = `Utilisation : ${usagePercent}%`;
+            }
         }
 
         class Rectangle {
@@ -117,7 +138,6 @@
         }
 
         let boards = [new Board(280, 207)];
-        const rectangleList = document.getElementById("rectangle-list");
         let rectangles = [];
 
         function addRectangleFromUI() {
@@ -132,14 +152,11 @@
                 alert("Veuillez entrer des valeurs valides.");
             }
         }
-        
+
         function updateBoards() {
             boards = [new Board(280, 207)];
-            rectangles.forEach(rect => {
-                addRectangle(rect);
-            });
+            rectangles.forEach(rect => addRectangle(rect));
             redrawBoards();
-            updateRectangleList();
         }
 
         function addRectangle(rect) {
@@ -165,7 +182,7 @@
         function redrawBoards() {
             document.getElementById("board-container").innerHTML = "";
             boards.forEach(board => {
-                document.getElementById("board-container").appendChild(board.element);
+                document.getElementById("board-container").appendChild(board.wrapper);
                 board.element.innerHTML = "";
                 board.placedRectangles.forEach(rect => drawRectangle(board.element, rect));
             });
@@ -183,6 +200,10 @@
             
             rectElement.textContent = `${rect.width} x ${rect.height} cm`;
             boardElement.appendChild(rectElement);
+        }
+
+        function calculateBoardUsage() {
+            boards.forEach(board => board.calculateUsage());
         }
 
         function loadFromExcel(event) {
