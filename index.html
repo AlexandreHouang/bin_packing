@@ -55,10 +55,9 @@
         <label>Largeur: <input type="number" id="width" min="1"></label>
         <label>Hauteur: <input type="number" id="height" min="1"></label>
         <button onclick="addRectangleFromUI()">Ajouter</button>
-		<br>
+		<div><br></div>
         <button onclick="optimizeTangram()">Tangram</button>
         <button onclick="calculateBoardUsage()">Calculer Taux d'Utilisation</button>
-        <div><br></div>
         <button onclick="document.getElementById('fileInput').click()">Charger un fichier Excel</button>
         <input type="file" id="fileInput" accept=".xlsx, .xls" onchange="loadFromExcel(event)" style="display: none;">
         <div><br></div>
