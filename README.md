@@ -1,4 +1,4 @@
-# Bin Packing Application (Stable Version V10)
+# Bin Packing Application (Stable Version V11)
 
 This project implements a **Bin Packing Algorithm**, a combinatorial optimization problem that efficiently packs a set of items into a limited number of containers (bins) while minimizing wasted space.
 
@@ -14,6 +14,9 @@ This project implements a **Bin Packing Algorithm**, a combinatorial optimizatio
 - **Excel data import** (columns must be titled `"Largeur"`, `"Hauteur"`)  
 
 ## Changelog
+
+### 16/04/2025
+- Add percentage
 
 ### 13/03/2025
 - Remove button "Sauvegarder locale" and "Chargement locale"
